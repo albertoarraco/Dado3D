@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+	<style>
+		#cont{
+			width:250px;
+			height:250px;
+			margin: 100px auto;
+			perspective: 3600px;
+		}
+		#efecto{
+			transform-style: preserve-3d;
+			width: 150px;
+			height: 150px;
+			margin: 0 auto;
+			margin-bottom: 150px;
+		}
+		#efecto span{
+			width: 150px;
+			height: 150px;
+			background-color: white;
+			background-size: contain;
+			border: 2px solid black;
+			position: absolute;
+		}
+		button{
+            margin: 0 auto;
+			width: 150px;
+		}
+		#b1{
+			background-image: url(http://www.lawebdelprogramador.com/usr/147000/147685/527560a9ce32f-dado1.png);
+			background-size: contain;
+			transform: rotateY(0deg) translateZ(75px);
+		}
+		#b2{
+			background-image: url(http://www.lawebdelprogramador.com/usr/147000/147685/527560a9d15f6-dado2.png);
+			background-size: contain;
+			transform: rotateY(-90deg) translateZ(75px);
+		}
+		#b3{
+			background-image: url(http://www.lawebdelprogramador.com/usr/147000/147685/527560a9d48bd-dado3.png);
+			background-size: contain;
+			transform: rotateY(-180deg) translateZ(75px);
+		}
+		#b4{
+			background-image: url(http://www.lawebdelprogramador.com/usr/147000/147685/527560a9d7bc5-dado4.png);
+			background-size: contain;
+			transform: rotateY(-270deg) translateZ(75px);
+		}
+		
+		#b5{
+			background-image: url(http://www.lawebdelprogramador.com/usr/147000/147685/527560a9daa7f-dado5.png);
+			background-size: contain;
+			transform: translateY(75px) rotateX(90deg);
+		}
+		#b6{
+			background-image: url(http://www.lawebdelprogramador.com/usr/147000/147685/527560a9ddd30-dado6.png);
+			background-size: contain;
+			transform: translateY(-75px) rotateX(90deg);
+		}
+	</style>
+</head>
+<body>
+	<div id="cont">
+		<div id="efecto">
+			<span id=b1></span>
+			<span id=b2></span>
+			<span id=b3></span>
+			<span id=b4></span>
+			<span id=b5></span>
+			<span id=b6></span>
+		</div>
+		<button id="derecho">Derecha</button>
+		<button id="izquierda">Izquierda</button>
+		<button id="arriba">Arriba</button>
+		<button id="abajo">Abajo</button>
+	</div>
+	<script src="jquery-1.11.3.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+	<script src="jquery.transit.min.js"></script>
+	<script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js"></script>
+	<script>	
+        var gradDchaIzq=0;
+        var gradTopDown=0;
+        
+		$("#derecho").click(function(){
+            gradDchaIzq +=90;
+			$('#efecto').transition({
+			  perspective: '2000px',
+			  rotateY: gradDchaIzq+'deg'
+			});  
+		});			
+		$("#izquierda").click(function(){
+            gradDchaIzq -=90;
+			$('#efecto').transition({
+			  perspective: '2000px',
+			   rotateY: gradDchaIzq+'deg'
+			});  
+		});			
+		$("#arriba").click(function(){
+            gradTopDown +=90;
+			$('#efecto').transition({
+			  perspective: '2000px',
+			  rotateX: gradTopDown+'deg'
+			});
+		});	
+		$("#abajo").click(function(){
+            gradTopDown -=90;
+			$('#efecto').transition({
+			  perspective: '2000px',
+			  rotateX: gradTopDown+'deg'
+			});
+		});		
+	</script>
+</body>
+</html>
